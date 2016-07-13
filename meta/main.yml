@@ -13,4 +13,6 @@ galaxy_info:
         - 7
   galaxy_tags:
     - consul
-    - system
+    - clustering
+    - hashicorp
+    - monitoring
