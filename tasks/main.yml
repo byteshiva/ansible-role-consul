@@ -4,7 +4,7 @@
 - name: Install consul package
   tags: consul
   yum: name=consul
-       enablerepo=tkimball83-{{ tkimball83_pkg }}
+       enablerepo=linuxhq-{{ linuxhq_pkg }}
        state=present
        update_cache=yes
   register: consul_yum
