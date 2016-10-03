@@ -3,6 +3,15 @@
   tags: consul
   stat: path=/etc/consul/consul.strapped
   register: consul_stat
+  
+- name: create consul directory
+  file: >
+    state=directory
+    path={{ item }}
+    owner={{consul_user}}
+    group={{consul_group}}
+  with_items:
+    - "{{ consul_config_dir }}"
 
 - name: Set consul_bootstrap fact (not strapped)
   tags: consul
