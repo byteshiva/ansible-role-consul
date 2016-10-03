@@ -5,6 +5,8 @@ consul_log_level: INFO
 consul_node_name: localhost
 consul_server: True
 consul_ui: False
+consul_service_state: started
+consul_manage_service: true
 consul_config_dir: /etc/consul.d
 # Define Consul services to add to /etc/consul.d/*
 consul_services: {}
