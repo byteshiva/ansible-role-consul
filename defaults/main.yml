@@ -5,6 +5,9 @@ consul_log_level: INFO
 consul_node_name: localhost
 consul_server: True
 consul_ui: False
+#consul user name
+consul_user: consul
+consul_group: consul
 consul_service_state: started
 consul_manage_service: true
 consul_config_dir: /etc/consul.d
