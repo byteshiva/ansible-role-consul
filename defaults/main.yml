@@ -12,5 +12,12 @@ consul_service_state: started
 consul_manage_service: true
 consul_config_dir: /etc/consul.d
 # Define Consul services to add to /etc/consul.d/*
-consul_services: {}
+consul_services: { 
+"service": {
+	"name": "web", 
+	"tags": ["web_port_80"], 
+	"port": 80,
+	"check": {"script": "curl localhost >/dev/null 2>&1", "interval": "10s"}
+	}
+}
 consul_services_mode: 0640
