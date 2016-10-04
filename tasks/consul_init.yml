@@ -13,9 +13,16 @@
   with_items:
     - "{{ consul_config_dir }}"
 
-- name: Copy Consul init.d script
-  template: src=consul.initd.sh.j2 dest=/etc/init.d/consul
-  notify: start consul service
+- name: copy consul init.d script
+  template: >
+    src={{consul_initd_template}}
+    dest=/etc/init.d/consul
+    owner=root
+    group=root
+    mode=0755
+  when: consul_use_initd
+  notify:
+    - "{{ consul_restart_handler }}"
 
 - name: add consul to path through profile.d
   template: >
