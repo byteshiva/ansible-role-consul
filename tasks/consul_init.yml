@@ -17,6 +17,14 @@
   template: src=consul.initd.sh.j2 dest=/etc/init.d/consul
   notify: start consul service
 
+- name: add consul to path through profile.d
+  template: >
+    src={{consul_add_path_template}}
+    dest=/etc/profile.d/consul.sh
+    owner=root
+    group=root
+    mode=0755
+
 - name: Set consul_bootstrap fact (not strapped)
   tags: consul
   set_fact:
