@@ -64,8 +64,3 @@
     consul_bootstrap: True
   when:
     - consul_leader is not defined
-
-handlers:
- - name: start consul service
-   service: name=consul state=restarted
-
