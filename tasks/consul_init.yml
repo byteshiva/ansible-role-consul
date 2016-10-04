@@ -13,6 +13,10 @@
   with_items:
     - "{{ consul_config_dir }}"
 
+- name: Copy Consul init.d script
+  template: src=consul.initd.sh.j2 dest=/etc/init.d/consul
+  notify: start consul service
+
 - name: Set consul_bootstrap fact (not strapped)
   tags: consul
   set_fact:
@@ -45,3 +49,8 @@
     consul_bootstrap: True
   when:
     - consul_leader is not defined
+
+handlers:
+ - name: start consul service
+   service: name=consul state=restarted
+
