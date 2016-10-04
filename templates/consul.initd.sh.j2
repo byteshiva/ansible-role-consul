@@ -11,7 +11,7 @@
 . /etc/rc.d/init.d/functions
 
 prog=consul
-cmd="/bin/${prog} agent"
+cmd="${prog} agent"
 pidfile="/var/run/${prog}.pid"
 lockfile="/var/lock/subsys/${prog}"
 
