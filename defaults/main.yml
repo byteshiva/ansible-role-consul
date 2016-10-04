@@ -11,6 +11,8 @@ consul_group: consul
 consul_service_state: started
 consul_manage_service: true
 consul_config_dir: /etc/consul.d
+consul_initd_template: "consul.initd.sh.j2"
+consul_add_path_template: "consul.sh.j2"
 # Define Consul services to add to /etc/consul.d/*
 consul_services:
   - service:
